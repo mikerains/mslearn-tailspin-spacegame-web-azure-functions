@@ -20,6 +20,12 @@ stages:
       dotnetSdkVersion: '3.x'
 
     steps:
+    - task: NodeTool@0
+      displayName: Node install
+      inputs:
+        versionSpec: '14.x' # The version we're installing
+    # Write the installed version to the command line
+    - script: which node
     - task: UseDotNet@2
       displayName: 'Use .NET SDK $(dotnetSdkVersion)'
       inputs:
